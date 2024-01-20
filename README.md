@@ -27,7 +27,7 @@ Install the library
 pip install foss-cryptography
 ```
 
-### From PyPI:
+### From GitHub:
 
 Clone the library from GitHub
 
