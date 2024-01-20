@@ -1,6 +1,6 @@
 [project]
 name = "foss_cryptography"
-version = "1.0.0"
+version = "1.0.1"
 
 [build-system]
 requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.4"]
