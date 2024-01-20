@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.4"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+name = "foss_cryptography"
+version = "1.0.0"
+description = "Elliptic Cryptography"
+author = "Stefano"
+packages = ["cryptography"]
+setup_requires = ["pytest-runner"]
+tests_require = ["pytest==4.4.1"]
+test_suite = "tests"
