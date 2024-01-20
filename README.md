@@ -68,6 +68,7 @@ R = curve.add(P, Q)
 result = curve.scalar_multiply(n, P)
 ```
 
+
 ### ECDSA
 
 ```python
@@ -84,3 +85,7 @@ signature = ecdsa.sign(k, message, private_key)
 # Verify a message
 is_verified = ecdsa.verify(signature, message, public_key)
 ```
+
+
+### License
+This project is under the [MIT License](LICENSE).
