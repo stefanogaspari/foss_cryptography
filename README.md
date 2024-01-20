@@ -19,6 +19,29 @@ The main functions of this library are self-contained, and the library doesn't r
 
 ## Installation
 
+Clone the library from GitHub
+
+```bash
+git clone https://github.com/stefanogaspari/foss_cryptography.git
+```
+
+Install the library dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Build the library
+
+```bash
+python setup.py bdist_wheel
+```
+
+Install the library
+```bash
+pip install /path/to/wheelfile.whl
+```
+
 
 ## Usage
 
