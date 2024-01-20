@@ -19,6 +19,16 @@ The main functions of this library are self-contained, and the library doesn't r
 
 ## Installation
 
+### From PyPI:
+
+Install the library
+
+```bash
+pip install foss-cryptography
+```
+
+### From PyPI:
+
 Clone the library from GitHub
 
 ```bash
