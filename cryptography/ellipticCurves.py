@@ -4,7 +4,7 @@ class EllipticCurve:
         self.a = a
         self.b = b
         self.Infinity = None
-        if (4 * pow(self.a,3) + 27 * pow(self.b,3)) == 0:
+        if (4 * pow(self.a,3) + 27 * pow(self.b,2)) == 0:
             raise ValueError("Value Error: elliptic curve with singularity")
     # P + P = R
     def double(self, P):
