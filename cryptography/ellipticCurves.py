@@ -3,8 +3,8 @@ from typing import List
 class EllipticCurve:
 
     # Constructor: set an instance of a specific elliptic curve
-    def __init__(self, mod: int, a: int, b: int):
-        self.mod = mod
+    def __init__(self, p: int, a: int, b: int):
+        self.p = p
         self.a = a
         self.b = b
         self.Infinity = None
@@ -16,9 +16,9 @@ class EllipticCurve:
         if P is self.Infinity:
             return self.Infinity
         Px, Py = P
-        lam = (3 * pow(Px, 2, self.mod) + self.a) * pow(2 * Py, -1, self.mod)
-        Rx = (pow(lam, 2) - 2 * Px) % self.mod
-        Ry = (lam * (Px - Rx) - Py) % self.mod
+        lam = (3 * pow(Px, 2, self.p) + self.a) * pow(2 * Py, -1, self.p)
+        Rx = (pow(lam, 2) - 2 * Px) % self.p
+        Ry = (lam * (Px - Rx) - Py) % self.p
         return [Rx, Ry]
     
     # P + Q = R
@@ -31,9 +31,9 @@ class EllipticCurve:
             return self.double(P)
         Px, Py = P
         Qx, Qy = Q
-        lam = ((Qy - Py) * pow(Qx - Px, -1, self.mod)) % self.mod
-        Rx = (pow(lam, 2) - Px - Qx) % self.mod
-        Ry = (lam * (Px - Rx) - Py) % self.mod
+        lam = ((Qy - Py) * pow(Qx - Px, -1, self.p)) % self.p
+        Rx = (pow(lam, 2) - Px - Qx) % self.p
+        Ry = (lam * (Px - Rx) - Py) % self.p
         return [Rx, Ry]
     
     # n * P = R
