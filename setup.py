@@ -6,7 +6,7 @@ with open("README.md") as file:
 setup(
     name='foss_cryptography',
     packages=find_packages(include=['cryptography']),
-    version='1.0.2',
+    version='2.0.0',
     url='https://github.com/stefanogaspari/foss_cryptography',
     description='Elliptic Cryptography and ECDSA',
     long_description=long_description,

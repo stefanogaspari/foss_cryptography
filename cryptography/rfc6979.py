@@ -5,7 +5,7 @@
 
 import hmac
 import hashlib
-from hmac_digest_hash import hash
+from cryptography.hashing import hash
 
 
 def bits2int(bit_string: str, q: int) -> int:
@@ -123,8 +123,14 @@ def ceil(hlen: int) -> int:
 
 
 def generate_k(hash_func_name: str, msg: bytes, x: int, q: int) -> int:
+    """
+    generate_k generates the deterministic k as per RFC6979
+    """
+
+    # Instantiate HMAC_K
     hmac_k = HMAC_K(hash_func_name)
 
+    # Initialize qlen
     qlen = len(bin(q)[2:])
 
     # Step a

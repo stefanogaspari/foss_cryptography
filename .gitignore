@@ -1,6 +1,9 @@
 venv/
 cryptography/__pycache__/
+cryptography/curves/__pycache__/
 tests/__pycache__/
 foss_cryptography.egg-info/
 dist/
 build/
+.DS_Store
+.tox/
