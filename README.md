@@ -85,19 +85,23 @@ R = curve.scalar_multiply(n, P)
 from cryptography.ecdsa import ECDSA
 from cyptography.curves.secp256k1 import p, a, b, origin_G, n
 
+# Define the hash function
+hash_function = 'sha256'
 
-# Initialize ECDSA instance
-ecdsa = ECDSA(m, a, b, origin_G, n)
+# Initialize ECDSA secp256k1 instance
+ecdsa = ECDSA(m, a, b, origin_G, n, hash_function)
 
 # Sign a message with a secure random k
 # k: int
 # message: bytes
 # private_key: bytes
-signature = ecdsa.sign(k, message, private_key)
+# signature: bytes -> r || s
+signature = ecdsa.non_deterministic_sign(k, message, private_key)
 
 # Verify a message
 # message: bytes
 # public_key: bytes -> public_key_x || public_key_y
+# is_verified: bool
 is_verified = ecdsa.verify(signature, message, public_key)
 ```
 
@@ -108,18 +112,22 @@ is_verified = ecdsa.verify(signature, message, public_key)
 from cryptography.ecdsa import ECDSA
 from cyptography.curves.secp256k1 import p, a, b, origin_G, n
 
+# Define the hash function
+hash_function = 'sha256'
 
-# Initialize ECDSA instance
+# Initialize ECDSA secp256k1 instance
 ecdsa = ECDSA(m, a, b, origin_G, n)
 
 # Sign a message with a deterministic k (as per RFC6979)
 # message: bytes
 # private_key: bytes
-signature = ecdsa.sign(message, private_key)
+# signature: bytes -> r || s
+signature = ecdsa.deterministic_sign(message, private_key)
 
 # Verify a message
 # message: bytes
 # public_key: bytes -> public_key_x || public_key_y
+# is_verified: bool
 is_verified = ecdsa.verify(signature, message, public_key)
 ```
 
