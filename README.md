@@ -121,6 +121,7 @@ signature = ecdsa.sign(message, private_key)
 # message: bytes
 # public_key: bytes -> public_key_x || public_key_y
 is_verified = ecdsa.verify(signature, message, public_key)
+```
 
 
 ## License
