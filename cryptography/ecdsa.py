@@ -29,17 +29,17 @@ class ECDSA:
         s = (pow(k, -1, self.n) * (h + r * privK)) % self.n
         if s == 0:
             raise ValueError("Value Error: s = 0. Start over")
-        if len(hex(r)[2:]) // 2 == 0:
-            len_r_bytes = len(hex(r)[2:])
+        if len(hex(r)[2:]) % 2 == 0:
+            len_r_bytes = len(hex(r)[2:]) // 2
         else:
-            len_r_bytes = len(hex(r)[2:]) + 1
-        if len(hex(s)[2:]) // 2 == 0:
-            len_s_bytes = len(hex(s)[2:])
+            len_r_bytes = len(hex(r)[2:]) // 2 + 1
+        if len(hex(s)[2:]) % 2 == 0:
+            len_s_bytes = len(hex(s)[2:]) // 2
         else:
-            len_s_bytes = len(hex(s)[2:]) + 1
+            len_s_bytes = len(hex(s)[2:]) // 2 + 1
         r_bytes = r.to_bytes(len_r_bytes, byteorder='big')
         s_bytes = s.to_bytes(len_s_bytes, byteorder='big')
-        return r_bytes + s_bytes
+        return r_bytes , s_bytes
     
     # Sign a message <msg> in a deterministic way (RFC6979)
     def deterministic_sign(self, msg: bytes, privKey: bytes) -> bytes:
@@ -54,17 +54,17 @@ class ECDSA:
         s = (pow(k, -1, self.n) * (h + r * privK)) % self.n
         if s == 0:
             raise ValueError("Value Error: s = 0. Start over")
-        if len(hex(r)[2:]) // 2 == 0:
-            len_r_bytes = len(hex(r)[2:])
+        if len(hex(r)[2:]) % 2 == 0:
+            len_r_bytes = len(hex(r)[2:]) // 2
         else:
-            len_r_bytes = len(hex(r)[2:]) + 1
-        if len(hex(s)[2:]) // 2 == 0:
-            len_s_bytes = len(hex(s)[2:])
+            len_r_bytes = len(hex(r)[2:]) // 2 + 1
+        if len(hex(s)[2:]) % 2 == 0:
+            len_s_bytes = len(hex(s)[2:]) // 2
         else:
-            len_s_bytes = len(hex(s)[2:]) + 1
+            len_s_bytes = len(hex(s)[2:]) // 2 + 1
         r_bytes = r.to_bytes(len_r_bytes, byteorder='big')
         s_bytes = s.to_bytes(len_s_bytes, byteorder='big')
-        return r_bytes + s_bytes
+        return r_bytes , s_bytes
     
     # Verify a message msg
     def verify(self, sig: bytes, msg: bytes, pubKey: bytes) -> bool:

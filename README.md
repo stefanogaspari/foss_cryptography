@@ -95,10 +95,11 @@ ecdsa = ECDSA(m, a, b, origin_G, n, hash_function)
 # k: int
 # message: bytes
 # private_key: bytes
-# signature: bytes -> r || s
+# signature: Tuple(bytes, bytes) -> r , s
 signature = ecdsa.non_deterministic_sign(k, message, private_key)
 
 # Verify a message
+# signature: bytes -> r || s
 # message: bytes
 # public_key: bytes -> public_key_x || public_key_y
 # is_verified: bool
@@ -121,10 +122,11 @@ ecdsa = ECDSA(m, a, b, origin_G, n)
 # Sign a message with a deterministic k (as per RFC6979)
 # message: bytes
 # private_key: bytes
-# signature: bytes -> r || s
+# signature: Tuple(bytes, bytes) -> r , s
 signature = ecdsa.deterministic_sign(message, private_key)
 
 # Verify a message
+# signature: bytes -> r || s
 # message: bytes
 # public_key: bytes -> public_key_x || public_key_y
 # is_verified: bool
